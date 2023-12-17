@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import '../css/signup.css';
 import Otp from './otp';
@@ -12,13 +13,25 @@ const SignupPage = () => {
     const [userExists, setUserExists] = useState(false);
     const [emailExists, setEmailExists] = useState(false);
     const [otpVerify, setOtpVerify] = useState(false);
+    const [mailOtp, setMailOtp] = useState('');
+    const navigate = useNavigate();
 
     const signClick = () => {
         setOtpVerify(true);
+        axios.post('http://localhost:5000/auth/sendOtp',{email})
+        .then(response => {
+            if (response.data && response.data.otp) {
+                setMailOtp(response.data.otp);
+            } else {
+                console.error("Invalid response format");
+            }
+        })
+        .catch(error => {
+            console.log(error);
+        })
     }
 
-    const handleSignup = (e) => {
-        e.preventDefault();
+    const handleSignup = () => {
 
         if(!username || !email || !password){
             console.log('Enter the credentials');
@@ -32,6 +45,7 @@ const SignupPage = () => {
                 setPassword('');
                 setEmail('');
                 setIsSignedIn(true);
+                navigate('/login');
             })
             .catch(error => {
                 console.log("Error posting the data: ",error);
@@ -86,7 +100,7 @@ const SignupPage = () => {
             }
             {
                 otpVerify && 
-                <Otp handleSignup={handleSignup} email={email} />
+                <Otp handleSignup={handleSignup} email={email} mailOtp={mailOtp} otpVerify={otpVerify} setOtpVerify={setOtpVerify}/>
             }
         </div>
     );

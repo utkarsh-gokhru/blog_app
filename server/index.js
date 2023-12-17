@@ -11,7 +11,6 @@ app.use(express.json());
 dotenv.config();
 
 const db_url = process.env.DATABASE_URL;
-console.log(db_url);
 mongoose.connect(db_url)
 .then(() => {
     console.log('DB connected!');
@@ -23,5 +22,4 @@ mongoose.connect(db_url)
 app.use("/auth",userAuth);
 
 const port = process.env.PORT;
-console.log(port);
 app.listen(port,() => console.log('Server started'));
