@@ -1,0 +1,84 @@
+.create-blog-page {
+display: flex;
+flex-direction: column;
+min-height: 100vh;
+background-color: #f8f9fa;
+padding: 20px;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+.create-blog-container {
+background-color: #fff;
+padding: 20px;
+border-radius: 5px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+width: 600px;
+margin: 0 auto;
+margin-top: 10px;
+align-self: center;
+}
+
+.create-blog-container h2 {
+margin-bottom: 20px;
+font-size: 1.5rem;
+font-weight: bold;
+color: #212529;
+}
+
+.create-blog-container form {
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+
+.create-blog-container label {
+font-weight: bold;
+color: #212529;
+}
+
+.create-blog-container input,
+.create-blog-container textarea {
+padding: 8px 10px;
+border: 1px solid #ddd;
+border-radius: 4px;
+font-size: 16px;
+outline: none;
+}
+
+.create-blog-container textarea {
+resize: none;
+}
+
+.create-blog-container button {
+padding: 8px 15px;
+border: none;
+border-radius: 4px;
+background-color: #007bff;
+color: #fff;
+font-size: 16px;
+cursor: pointer;
+transition: all 0.2s ease-in-out;
+}
+
+.create-blog-container button:hover {
+background-color: #0069d9;
+}
+
+
+@media only screen and (max-width: 768px) {
+.create-blog-container {
+width: 90%;
+}
+}
+
+@media only screen and (max-width: 480px) {
+.create-blog-container {
+width: 100%;
+}
+
+.create-blog-container input,
+.create-blog-container textarea {
+font-size: 14px;
+}
+}

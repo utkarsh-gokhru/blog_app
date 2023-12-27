@@ -14,6 +14,7 @@ const SignupPage = () => {
     const [emailExists, setEmailExists] = useState(false);
     const [otpVerify, setOtpVerify] = useState(false);
     const [mailOtp, setMailOtp] = useState('');
+    const [invalMail, setInvalMail] = useState(false);
     const navigate = useNavigate();
 
     const signClick = () => {
@@ -24,6 +25,7 @@ const SignupPage = () => {
                 setMailOtp(response.data.otp);
             } else {
                 console.error("Invalid response format");
+                setInvalMail(true);
             }
         })
         .catch(error => {
@@ -67,7 +69,6 @@ const SignupPage = () => {
             {
                 !otpVerify && 
                 <div className="signup-container">
-
                     <div className='msg'>
                         {isSignedIn && <p className="success-message">SignUp Successful!</p>}
                         {userExists && <p className="error-message">Username already in use</p>}
@@ -100,7 +101,7 @@ const SignupPage = () => {
             }
             {
                 otpVerify && 
-                <Otp handleSignup={handleSignup} email={email} mailOtp={mailOtp} otpVerify={otpVerify} setOtpVerify={setOtpVerify}/>
+                <Otp handleSignup={handleSignup} email={email} mailOtp={mailOtp} otpVerify={otpVerify} setOtpVerify={setOtpVerify} invalMail={invalMail}/>
             }
         </div>
     );

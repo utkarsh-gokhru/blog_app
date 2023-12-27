@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function Otp({ handleSignup, email, mailOtp, otpVerify, setOtpVerify }) {
+function Otp({ handleSignup, email, mailOtp, otpVerify, setOtpVerify, invalMail }) {
   const [otp, setOtp] = useState('');
   const [invalOtp, setInvalOtp] = useState(false);
 
   const handleVerify = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5000/auth/otp', { email, otp, mailOtp })
+    axios.post('http://localhost:5000/auth/otp', { email, otp, mailOtp})
       .then(response => {
         console.log(response.data);
         handleSignup();
@@ -23,9 +23,10 @@ function Otp({ handleSignup, email, mailOtp, otpVerify, setOtpVerify }) {
   };
 
   return (
-    <div className="App">
+    <div className="Otp">
       <div>
-        {invalOtp && <p>The otp did not match</p>}
+        {invalOtp && <p className='error-message'>The otp did not match</p>}
+        {invalMail && <p>Could not find the email</p>}
       </div>
       <h1>OTP Verification</h1>
       <div>

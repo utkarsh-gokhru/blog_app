@@ -24,11 +24,18 @@ function mail_sender(user_mail, otp) {
 
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
-            console.error('Error sending email:', error.message);
+            if (error.code === 'EAUTH' || error.code === 'EDNS') {
+                console.error('Authentication or DNS error:', error.message);
+            } else if (error.code === 'EENVELOPE') {
+                console.error('Invalid recipient address:', error.message);
+            } else {
+                console.error('Error sending email:', error.message);
+            }
         } else {
             console.log('Email sent:', info.response);
         }
     });
+    
 }
 
 export default mail_sender;

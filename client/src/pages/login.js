@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import '../css/login.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -15,6 +17,8 @@ const LoginPage = () => {
             console.log(response.data);
             setUsername('');
             setPassword('');
+            localStorage.setItem('username',username);
+            navigate('/home');
         })
         .catch(error => {
             console.log(error);

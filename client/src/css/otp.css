@@ -1,52 +1,40 @@
-body {
+.Otp {
 font-family: Arial, sans-serif;
 margin: 0;
 padding: 0;
 color: #333;
 }
 
-a {
-text-decoration: none;
-color: #007bff;
-transition: color 0.2s ease-in-out;
-}
-
-.login-page {
+.Otp div {
 display: flex;
+flex-direction: column;
 align-items: center;
-justify-content: center;
-min-height: 100vh;
-background-color: #f8f9fa;
-}
-
-.login-container {
 padding: 20px;
 border-radius: 5px;
 background-color: #fff;
 box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-width:40%;
-height: 60%;
 }
 
-h2 {
+.Otp div p {
+color: #dc3545;
+font-weight: bold;
+margin-bottom: 10px;
+}
+
+.Otp h1 {
 font-size: 1.5rem;
 font-weight: bold;
 color: #212529;
 margin-bottom: 15px;
 }
 
-form {
-width: 100%;
-margin-bottom: 20px;
-}
-
-label {
+.Otp div label {
 font-size: 14px;
 color: #212529;
 margin-bottom: 5px;
 }
 
-input {
+.Otp div input {
 height: 40px;
 border: 1px solid #ddd;
 border-radius: 5px;
@@ -55,11 +43,7 @@ font-size: 16px;
 color: #333;
 }
 
-input::placeholder {
-color: #999;
-}
-
-button {
+.Otp button {
 background-color: #007bff;
 color: #fff;
 border: none;
@@ -68,20 +52,17 @@ padding: 10px 20px;
 font-size: 16px;
 cursor: pointer;
 transition: background-color 0.2s ease-in-out;
-}
-
-button:hover {
-background-color: #0067cc;
+margin-top: 10px;
 }
 
 @media only screen and (max-width: 768px) {
-.login-container {
-width: 50%;
+.Otp div {
+width: 70%;
 }
 }
 
 @media only screen and (max-width: 480px) {
-form {
+.Otp div {
 flex-direction: column;
 }
 

@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import { userAuth } from './routes/auth.js';
 import dotenv from 'dotenv';
+import { Blog } from './routes/create.js';
 
 const app = express();
 
@@ -20,6 +21,7 @@ mongoose.connect(db_url)
 })
 
 app.use("/auth",userAuth);
+app.use("/blog",Blog);
 
 const port = process.env.PORT;
 app.listen(port,() => console.log('Server started'));

@@ -5,7 +5,7 @@ const LandingPage = () => {
 
     return (
         <div className="landing-page">
-            <header>
+            <header className='landing_header'>
                 <h1>BlogSphere</h1>
                 <p>Discover the latest insights on technology, lifestyle, and more.</p>
                 <a href="/signup" className="cta-button">
