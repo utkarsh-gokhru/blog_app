@@ -12,7 +12,7 @@ const CreateBlogPage = () => {
     const timestamp = new Date(); 
     const blog_content = { username, title, content, timestamp };
 
-    axios.post('http://localhost:5000/blog/create', blog_content)
+    axios.post('https://blogapp-qmqx.onrender.com/blog/create', blog_content)
       .then(response => {
         console.log(response.data);
         setTitle('');

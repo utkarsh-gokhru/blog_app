@@ -9,7 +9,7 @@ const FeaturedPost = ({ searchQuery }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/blog/get')
+    axios.get('https://blogapp-qmqx.onrender.com/blog/get')
       .then(response => {
         setBlogs(response.data.reverse());
         setLoading(false); // Set loading to false after fetching the data

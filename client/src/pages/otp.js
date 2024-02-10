@@ -7,7 +7,7 @@ function Otp({ handleSignup, email, mailOtp, otpVerify, setOtpVerify, invalMail 
 
   const handleVerify = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5000/auth/otp', { email, otp, mailOtp})
+    axios.post('https://blogapp-qmqx.onrender.com/auth/otp', { email, otp, mailOtp})
       .then(response => {
         console.log(response.data);
         handleSignup();

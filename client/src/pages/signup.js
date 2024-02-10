@@ -19,7 +19,7 @@ const SignupPage = () => {
 
     const signClick = () => {
         setOtpVerify(true);
-        axios.post('http://localhost:5000/auth/sendOtp',{email})
+        axios.post('https://blogapp-qmqx.onrender.com/auth/sendOtp',{email})
         .then(response => {
             if (response.data && response.data.otp) {
                 setMailOtp(response.data.otp);
@@ -40,7 +40,7 @@ const SignupPage = () => {
         }
         else{
             const credentials = {username,email,password};
-            axios.post('http://localhost:5000/auth/signup',credentials)
+            axios.post('https://blogapp-qmqx.onrender.com/auth/signup',credentials)
             .then(response => {
                 console.log(response.data);
                 setUsername('');

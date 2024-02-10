@@ -12,7 +12,7 @@ const LoginPage = () => {
     const handleLogin = (e) => {
         e.preventDefault();
 
-        axios.post('http://localhost:5000/auth/login',{username, password})
+        axios.post('https://blogapp-qmqx.onrender.com/auth/login',{username, password})
         .then(response => {
             console.log(response.data);
             setUsername('');

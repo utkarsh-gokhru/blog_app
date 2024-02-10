@@ -10,7 +10,7 @@ const MyBlogs = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.post('http://localhost:5000/blog/myblogs', { username })
+    axios.post('https://blogapp-qmqx.onrender.com/blog/myblogs', { username })
       .then(response => {
         setMyBlogs(response.data.reverse());
         setLoading(false); // Set loading to false after fetching the data
