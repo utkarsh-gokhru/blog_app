@@ -24,7 +24,7 @@ const MyBlogs = () => {
   return (
     <section className="my-blogs">
       <Header />
-      <h2>My Blogs</h2>
+      <h2 className="blogs-heading">My Blogs</h2>
 
       {loading && (
         <div className="loader-container">
@@ -32,11 +32,22 @@ const MyBlogs = () => {
         </div>
       )}
 
-      {myBlogs.map((blog, index) => (
+      {!loading && myBlogs.map((blog, index) => (
         <article key={blog._id} className="blog-post">
-          <h4>{blog.title}</h4>
-          <p style={{ whiteSpace: 'pre-line' }}>{blog.content}</p>
-          <p>{`Posted on ${new Date(blog.timestamp).toLocaleDateString()} at ${new Date(blog.timestamp).toLocaleTimeString()}`}</p>
+          <div className='content-class'>
+            <div className="blog-title">
+              <h4>{blog.title}</h4>
+            </div>
+            <div className='content'>
+              <div className='blog-txt'>
+                <p style={{ whiteSpace: 'pre-line' }}>{blog.content}</p>
+              </div>
+              <div className='img-cont'>
+                {blog.image && <img src={'https://blogapp-qmqx.onrender.com/images/' + blog.image} alt="Blog" className='img' />}
+              </div>
+            </div>
+          </div>
+          <p className="timestamp">{`Posted on ${new Date(blog.timestamp).toLocaleDateString()} at ${new Date(blog.timestamp).toLocaleTimeString()}`}</p>
           {index !== myBlogs.length - 1 && <hr />}
         </article>
       ))}

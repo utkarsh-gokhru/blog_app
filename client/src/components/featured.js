@@ -46,15 +46,32 @@ const FeaturedPost = ({ searchQuery }) => {
         </div>
       )}
 
-      {!loading && filteredBlogs.map((blog, index) => (
-        <article key={blog._id} className="blog-post">
-          <h3 dangerouslySetInnerHTML={highlightText(blog.username, searchQuery)} />
-          <h4 dangerouslySetInnerHTML={highlightText(blog.title, searchQuery)} />
-          <p style={{ whiteSpace: 'pre-line' }} dangerouslySetInnerHTML={highlightText(blog.content, searchQuery)} />
-          <p>{`Posted on ${new Date(blog.timestamp).toLocaleDateString()} at ${new Date(blog.timestamp).toLocaleTimeString()}`}</p>
-          {index !== filteredBlogs.length - 1 && <hr />}
-        </article>
-      ))}
+      {!loading &&
+        filteredBlogs.map((blog, index) => (
+          <article key={blog._id} className="blog-post">
+            <div className='content-class'>
+                <div className="blog-user">
+                  <h3 dangerouslySetInnerHTML={highlightText(blog.username, searchQuery)} />
+                </div>
+              <div className='content'>
+                <div className='blog-txt'>
+                  <div className="blog-title">
+                    <h4 dangerouslySetInnerHTML={highlightText(blog.title, searchQuery)} />
+                  </div>
+                  <div className="blog-content">
+                    <p style={{ whiteSpace: 'pre-line' }}>{blog.content}</p>
+                  </div>
+                </div>
+                <div className='img-cont'>
+                  {blog.image && <img src={'https://blogapp-qmqx.onrender.com/images/' + blog.image} alt="Blog" className='img' />}
+                </div>
+              </div>
+            </div>
+            <p>{`Posted on ${new Date(blog.timestamp).toLocaleDateString()} at ${new Date(blog.timestamp).toLocaleTimeString()}`}</p>
+            {index !== filteredBlogs.length - 1 && <hr />}
+          </article>
+        ))
+      }
     </section>
   );
 };
