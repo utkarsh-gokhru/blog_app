@@ -56,6 +56,7 @@ margin-top: 20px;
 display: flex;
 flex-wrap: wrap;
 justify-content: center;
+align-items: center;
 margin: 40px 0;
 }
 
@@ -87,12 +88,12 @@ font-size: 2rem;
 }
 
 .features {
+    display: flex;
 flex-direction: column;
+justify-content: center;
+align-items: center;
 }
 
-.feature {
-width: 100%;
-}
 }
 
 @media only screen and (max-width: 480px) {
@@ -104,6 +105,14 @@ font-size: 14px;
 width: 70%;
 display: flex;
 flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+}
+
+.features{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .cta-button {
